@@ -1,14 +1,14 @@
 .add-task-button {
     color: white;
     background-color: rgba(17, 98, 255, 1);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-size: 1rem;
 
     min-width: fit-content;
 
-    border-right: 1.75px solid black;
-    border-bottom: 1.75px solid black;
-    border-top: 1.75px solid black;
+    border-right: 1.75px solid #c6c6c6;
+    border-bottom: 1.75px solid #c6c6c6;
+    border-top: 1.75px solid #c6c6c6;
     border-left: none;
     border-radius: 3.5px;
     border-top-left-radius: 0px;

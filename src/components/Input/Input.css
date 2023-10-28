@@ -1,11 +1,11 @@
 .input-task-name {
     background-color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-size: 1rem;
 
-    border-left: 1.75px solid black;
-    border-bottom: 1.75px solid black;
-    border-top: 1.75px solid black;
+    border-left: 1.75px solid #c6c6c6;
+    border-bottom: 1.75px solid #c6c6c6;
+    border-top: 1.75px solid #c6c6c6;
     border-right: none;
     border-radius: 3.5px;
     border-top-right-radius: 0px;
@@ -13,12 +13,13 @@
 
     width: 100%;
     padding-left: 1.25rem;
-    
+
     margin: 0px;
-    gap: 0px; 
+    gap: 0px;
+
+    background: none;
 
     &:focus {
         outline: none;
     }
 }
-

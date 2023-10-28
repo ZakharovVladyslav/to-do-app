@@ -1,0 +1,18 @@
+.input-task-name {
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+
+    border-left: 1.75px solid black;
+    border-bottom: 1.75px solid black;
+    border-top: 1.75px solid black;
+    border-right: none;
+    border-radius: 3.5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    height: fit-content;
+    min-width: 1200px;
+
+    margin: 0px;
+    gap: 0px;
+}

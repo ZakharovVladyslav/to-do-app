@@ -30,7 +30,7 @@ function App() {
 
       <ul className='task-list'>
         {tasks.map((task, index) => (
-          <li index={index}>
+          <li key={index}>
             <label>
               {task.title}
             </label>

@@ -2,19 +2,16 @@
     background-color: #1C1C1C;
 }
 
-body {
-    width: 1920px;
-    height: 1080px;
-}
-
 .input-section {
 
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 
     margin: 0px auto;
+
+    width: 75rem;
 }
 
 .task-list {
@@ -24,5 +21,27 @@ body {
     align-items: center;
     justify-content: center;
 
+    max-width: 75rem;
+    height: auto;
+
     margin: 0px auto;
+
+    border: 0.0625rem solid #C6C6C6;
+    border-radius: 0.25rem;
+
+    padding: 1rem;
+    gap: 0.625rem;
+}
+
+.task-list li {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px auto;
+
+    padding: 1rem;
+    gap: 0.6rem;
 }

@@ -23,13 +23,9 @@ function App() {
     };
 
     const ToDoRemove = (id) => {
-
-        setTasks((currentTasks) => {
-            return (
-                currentTasks.filter((task) => task.id !== id)
-            )
-        });
-    }
+        const updatedTasks = tasks.filter((task) => task.id !== id);
+        setTasks(updatedTasks);
+    };
 
     return (
         <div className="App">
@@ -48,7 +44,7 @@ function App() {
                     <>
                     <li key={id}>
                         <label>{task.title}</label>
-                        <Button type='trash-bin-icon' onClick={ToDoRemove}>
+                        <Button type='trash-bin-icon' onClick={() => ToDoRemove(task.id)}>
                             <TrashBinIcon/>
                         </Button>
                         <Button type='revrite-icon'>

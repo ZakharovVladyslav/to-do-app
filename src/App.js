@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import Divider from "./components/Divider";
+import TrashBinIcon from "./components/Icons/TrashBinIcon";
+import CheckMarkIcon from "./components/Icons/CheckMarkIcon";
+import RevriteIcon from "./components/Icons/RevriteIcon";
+
 import "./App.css";
 
 function App() {
@@ -11,9 +16,20 @@ function App() {
         event.preventDefault();
 
         setTasks((currentTasks) => {
-            return [...currentTasks, { title: newItem, complited: false }];
+            return [...currentTasks, {id: crypto.randomUUID(), title: newItem, complited: false }];
         });
+
+        setNewItem("");
     };
+
+    const ToDoRemove = (id) => {
+
+        setTasks((currentTasks) => {
+            return (
+                currentTasks.filter((task) => task.id !== id)
+            )
+        });
+    }
 
     return (
         <div className="App">
@@ -28,10 +44,19 @@ function App() {
             </section>
 
             <ul className="task-list">
-                {tasks.map((task, index) => (
-                    <li key={index}>
+                {tasks.map((task, id) => (
+                    <>
+                    <li key={id}>
                         <label>{task.title}</label>
+                        <Button type='trash-bin-icon' onClick={ToDoRemove}>
+                            <TrashBinIcon/>
+                        </Button>
+                        <Button type='revrite-icon'>
+                            <RevriteIcon/>
+                        </Button>
                     </li>
+                    <Divider />
+                    </>
                 ))}
             </ul>
         </div>

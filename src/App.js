@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import Divider from "./components/Divider";
 import TrashBinIcon from "./components/Icons/TrashBinIcon";
 import RevriteIcon from "./components/Icons/RevriteIcon";
+import IconButton from "./components/IconButton";
 
 import "./App.css";
 
@@ -99,21 +100,19 @@ function App() {
                                 placeholder={""}
                             />
 
-                            <Button
-                                type="trash-bin-icon"
+                            <IconButton
+                                type="destructive"
                                 onClick={() => removeToDo(task.id)}
                                 hidden={false}
-                            >
-                                <TrashBinIcon />
-                            </Button>
+                                icon={<TrashBinIcon />}
+                            />
 
-                            <Button
-                                type="revrite-icon"
+                            <IconButton
+                                type="default"
                                 onClick={() => changeToDo(task.id)}
                                 hidden={false}
-                            >
-                                <RevriteIcon />
-                            </Button>
+                                icon={<RevriteIcon />}
+                            />
                         </li>
 
                         <Divider />

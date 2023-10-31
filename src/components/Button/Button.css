@@ -1,4 +1,8 @@
 .add-task-button {
+    cursor: pointer;
+
+    display: block;
+
     color: white;
     background-color: rgba(17, 98, 255, 1);
     font-family: "Courier New", Courier, monospace;
@@ -25,6 +29,7 @@
 }
 
 .trash-bin-icon {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -45,6 +50,7 @@
 }
 
 .revrite-icon {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,11 +62,26 @@
     border: 0.0625rem solid #1c1c1c;
     border-radius: 0.25rem;
 
-    background: #1162FF;
+    background: #1162ff;
     padding: 0.5rem;
     gap: 2px;
 }
 
 .revrite-icon svg {
-    background-color: #1162FF;
+    background-color: #1162ff;
+}
+
+.button.constructive {
+    background-color: green;
+
+    color: white;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    padding: 0.25rem 0.5rem;
+}
+
+.button.hidden {
+    display: none;
 }

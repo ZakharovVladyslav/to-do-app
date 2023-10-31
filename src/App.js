@@ -3,7 +3,6 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import Divider from "./components/Divider";
 import TrashBinIcon from "./components/Icons/TrashBinIcon";
-import CheckMarkIcon from "./components/Icons/CheckMarkIcon";
 import RevriteIcon from "./components/Icons/RevriteIcon";
 
 import "./App.css";
@@ -16,14 +15,49 @@ function App() {
         event.preventDefault();
 
         setTasks((currentTasks) => {
-            return [...currentTasks, {id: crypto.randomUUID(), title: newItem, complited: false }];
+            return [
+                ...currentTasks,
+                {
+                    id: crypto.randomUUID(),
+                    title: newItem,
+                    complited: false,
+                    onChange: false,
+                },
+            ];
         });
 
         setNewItem("");
     };
 
-    const ToDoRemove = (id) => {
+    const removeToDo = (id) => {
         const updatedTasks = tasks.filter((task) => task.id !== id);
+        setTasks(updatedTasks);
+    };
+
+    const changeToDo = (id) => {
+        const updatedTasks = tasks.map((task) => {
+            if (task.id === id) {
+                return {
+                    ...task,
+                    onChange: !task.onChange,
+                };
+            }
+            return task;
+        });
+
+        setTasks(updatedTasks);
+    };
+
+    const handleToDoChange = (e, id) => {
+        const updatedTasks = tasks.map((task) => {
+            if (task.id === id) {
+                return {
+                    ...task,
+                    title: e.target.value,
+                };
+            }
+            return task;
+        });
         setTasks(updatedTasks);
     };
 
@@ -33,8 +67,14 @@ function App() {
                 <Input
                     value={newItem}
                     onChange={(e) => setNewItem(e.target.value)}
+                    disabled={false}
                 />
-                <Button onClick={handleClick} type="add-task-button">
+
+                <Button
+                    onClick={handleClick}
+                    type="add-task-button"
+                    hidden={false}
+                >
                     Add task
                 </Button>
             </section>
@@ -42,16 +82,41 @@ function App() {
             <ul className="task-list">
                 {tasks.map((task, id) => (
                     <>
-                    <li key={id}>
-                        <label>{task.title}</label>
-                        <Button type='trash-bin-icon' onClick={() => ToDoRemove(task.id)}>
-                            <TrashBinIcon/>
-                        </Button>
-                        <Button type='revrite-icon'>
-                            <RevriteIcon/>
-                        </Button>
-                    </li>
-                    <Divider />
+                        <li key={id}>
+                            <Button
+                                type="constructive"
+                                onClick={() => changeToDo(task.id)}
+                                hidden={!task.onChange}
+                            >
+                                Confirm
+                            </Button>
+
+                            <Input
+                                value={task.title}
+                                onChange={(e) => handleToDoChange(e, task.id)}
+                                disabled={!task.onChange}
+                                borderless
+                                placeholder={""}
+                            />
+
+                            <Button
+                                type="trash-bin-icon"
+                                onClick={() => removeToDo(task.id)}
+                                hidden={false}
+                            >
+                                <TrashBinIcon />
+                            </Button>
+
+                            <Button
+                                type="revrite-icon"
+                                onClick={() => changeToDo(task.id)}
+                                hidden={false}
+                            >
+                                <RevriteIcon />
+                            </Button>
+                        </li>
+
+                        <Divider />
                     </>
                 ))}
             </ul>

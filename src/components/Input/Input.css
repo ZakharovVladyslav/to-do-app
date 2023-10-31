@@ -24,3 +24,9 @@
         outline: none;
     }
 }
+
+.input-task-name.borderless {
+    border: none;
+
+    font-size: 1.25rem;
+}

@@ -21,9 +21,9 @@
     margin-top: 1.25rem;
 
     padding: 1rem;
-    
+
     min-height: 2.5rem;
-    
+
     background: white;
     background: transparent;
 
@@ -43,13 +43,15 @@
     align-items: center;
     justify-content: space-between;
 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: white;
 
     margin: 0px auto;
 
     padding: 8px 16px;
     align-self: stretch;
+
+    width: calc(100% - 2rem);
 
     gap: 0.6rem;
 }
